@@ -11,5 +11,7 @@ namespace Cw3.Services
     {
        public Enrollment EnrollStudent(EnrollStudentRequest request);
        public Enrollment promoteStudent(Promotion promotion);
+
+        public bool ifExists(string index);
     }
 }
