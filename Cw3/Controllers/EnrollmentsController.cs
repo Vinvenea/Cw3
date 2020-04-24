@@ -7,6 +7,7 @@ using Cw3.DTOs.Request;
 using Cw3.DTOs.Response;
 using Cw3.Models;
 using Cw3.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,7 @@ namespace Cw3.Controllers
         //ZADANIE 1-------------
 
         [HttpPost]
+        [Authorize(Roles = "employee")]
         public IActionResult EnrollStudent(EnrollStudentRequest request)
         {
             Enrollment n = _serivce.EnrollStudent(request);
@@ -37,6 +39,7 @@ namespace Cw3.Controllers
 
         }
         [HttpPost("{promotions}")]
+        [Authorize(Roles = "employee")]
         public IActionResult promoteStudent(Promotion promotion)
         {
             Enrollment n = _serivce.promoteStudent(promotion);
@@ -49,3 +52,4 @@ namespace Cw3.Controllers
 
     }
 }
+//jwt token

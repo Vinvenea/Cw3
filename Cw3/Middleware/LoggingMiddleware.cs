@@ -20,8 +20,8 @@ namespace Cw3.Middleware
         public async Task InvokeAsync(HttpContext httpContext)
         {
             string wholeline = "";
-            wholeline+=httpContext.Request.Method.ToString() + " ";
-            wholeline+=httpContext.Request.Path.ToString() + " ";
+            wholeline += httpContext.Request.Method.ToString() + " ";
+            wholeline += httpContext.Request.Path.ToString() + " ";
             var bodySerialized = string.Empty;
 
             using (var reader = new StreamReader(httpContext.Request.Body, Encoding.UTF8, true, 1824, true))
@@ -29,18 +29,17 @@ namespace Cw3.Middleware
                 bodySerialized = await reader.ReadToEndAsync();
             }
             wholeline += bodySerialized;
-            wholeline+=httpContext.Request.QueryString.ToString();
+            wholeline += httpContext.Request.QueryString.ToString();
             var startupPath = @Environment.CurrentDirectory + @"\logRequest.txt";
-           
+
             using (System.IO.StreamWriter file =
            new System.IO.StreamWriter(@startupPath, true))
 
             {
-                 file.WriteLine(wholeline);
+                file.WriteLine(wholeline);
             }
-
-        //Our code
-        await _next(httpContext);
+          
+            await _next(httpContext);
         }
     }
 }

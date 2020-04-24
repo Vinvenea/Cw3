@@ -1,5 +1,3 @@
-GET /weatherforecast 
-GET /favicon.ico 
 GET /api {
 "IndexNumber" : "s1234",
 "FirstName" : "Andrzej",
@@ -7,3 +5,298 @@ GET /api {
 "BirthDate" : "30.03.1993",
 "Studies" : "Inf"
 }?Index=s182
+GET /weatherforecast 
+GET /favicon.ico 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/stude {
+"IndexNumber" : "s1234",
+"FirstName" : "Andrzej",
+"LastName" : "Malewski",
+"BirthDate" : "30.03.1993",
+"Studies" : "Inf"
+}
+GET /api/students {
+"IndexNumber" : "s1234",
+"FirstName" : "Andrzej",
+"LastName" : "Malewski",
+"BirthDate" : "30.03.1993",
+"Studies" : "Inf"
+}
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /api/ 
+GET /api 
+GET / 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /api/students 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students 
+POST /api/students 
+POST /api/students 
+POST /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students 
+POST /api/students 
+POST /api/students 
+POST /api/students 
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+GET /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"login": "cotam",
+	"password": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam"
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+GET /weatherforecast 
+GET /favicon.ico 
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}
+POST /api/students {
+	"Login": "cotam",
+	"Haslo": "password"
+}

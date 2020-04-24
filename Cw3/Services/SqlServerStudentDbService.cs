@@ -139,10 +139,12 @@ namespace Cw3.Services
             using (var con = new SqlConnection("Data Source = db-mssql; Initial Catalog = s18291; Integrated Security = True"))
             using (var com = new SqlCommand())
             {
+                com.Connection = con;
+                con.Open();
                 com.CommandText = "Select IndexNumber From Student Where IndexNumber = @index";
                 com.Parameters.AddWithValue("index", index);
                 var dr = com.ExecuteReader();
-                dr = com.ExecuteReader();
+               
                 if (dr.Read())
                 {
                     return true;
