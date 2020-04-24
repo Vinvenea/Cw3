@@ -53,10 +53,10 @@ namespace Cw3.Controllers
                 string Password = (string)dr["Password"];
                 string salt = (string)dr["salt"];
 
-                Console.WriteLine(salt);
-                Console.WriteLine(Password);
+                //Console.WriteLine(salt);
+                //Console.WriteLine(Password);
 
-                Console.WriteLine(MyHashing.Create(password, salt));
+                //Console.WriteLine(MyHashing.Create(password, salt));
 
 
                 dr.Close();
