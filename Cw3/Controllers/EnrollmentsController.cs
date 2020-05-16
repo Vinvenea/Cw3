@@ -18,10 +18,11 @@ namespace Cw3.Controllers
     public class EnrollmentsController : ControllerBase
     {
         private IStudentsDbService _serivce;
+        private readonly s18291Context _context;
 
-        public EnrollmentsController(IStudentsDbService service)
+        public EnrollmentsController(IStudentsDbService serivce)
         {
-            _serivce = service;
+            _serivce = serivce;
         }
         //ZADANIE 1-------------
 

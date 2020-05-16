@@ -12,6 +12,7 @@ using Cw3.Hashing;
 using Cw3.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -21,12 +22,59 @@ namespace Cw3.Controllers
     [Route("api/students")] // atrybuty
     public class StudentsController : ControllerBase
     {
-        private readonly IDbsService _dbService;
+        private readonly s18291Context _context;
         public IConfiguration Configuration { get; set; }
-        public StudentsController(IDbsService dbService, IConfiguration configuration)
+        public StudentsController(s18291Context context, IConfiguration configuration)
         {
             Configuration = configuration;
-            _dbService = dbService;
+            _context = context;
+        }
+        [HttpGet]
+
+        public IActionResult GetStudent(string orderBy)
+        {
+           
+            var students = _context.Student.Select(student => new
+            {
+                IndexNumber = student.IndexNumber,
+                FirstName = student.FirstName,
+                LastName = student.LastName
+            });
+
+            return Ok(students);
+
+        }
+        [HttpPut()]
+        public IActionResult PutStudent(ChangeStudentRequest studento)
+        {
+            var student = _context.Student.Where(stu => stu.IndexNumber == studento.IndexNumber);
+
+            Student studenta = new Student
+            {
+                IndexNumber = studento.IndexNumber,
+                FirstName = studento.FirstName,
+                LastName = studento.LastName
+            };
+            _context.Attach(studenta);
+            _context.Entry(studenta).Property("FirstName").IsModified = true;
+            _context.Entry(studenta).Property("LastName").IsModified = true;
+
+            _context.SaveChanges();
+
+            return Ok("Aktualizacja dokonczona");
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteStudent(String id)
+        {
+            var studentop = _context.Student.Where(stu => stu.IndexNumber == id);
+
+
+            _context.Remove(studentop);
+
+
+            _context.SaveChanges();
+
+            return Ok("Usuwanie ukonczone");
         }
         [HttpPost]
         public IActionResult Login(String IndexNumber, String password)
@@ -130,33 +178,7 @@ namespace Cw3.Controllers
                 
         }
         // CW 4 ZADANIE 4.2
-        [HttpGet]
         
-        public IActionResult GetStudent(string orderBy)
-        {
-            List<Student> _students = new List<Student>();
-            using (var client = new SqlConnection("Data Source=db-mssql;Initial Catalog=s18291;Integrated Security=True"))
-            using (var com = new SqlCommand())
-            {
-                com.Connection = client;
-                com.CommandText = "select * from student";
-
-                client.Open();
-                var dr = com.ExecuteReader();
-                int idStudent = 1;
-                while (dr.Read())
-                {
-                    var st = new Student();
-                    st.IdStudent = idStudent++;
-                    st.IndexNumber = dr["IndexNumber"].ToString();
-                    st.FirstName = dr["FirstName"].ToString();
-                    st.LastName = dr["LastName"].ToString();
-                    _students.Add(st);
-                }
-            }
-            return Ok(_students);
-            
-        }
         // CW 4 ZADANIE 4.3-4.5
         [HttpGet("{IndexNumber}")]
         public IActionResult GetStudents(string IndexNumber)
@@ -182,21 +204,11 @@ namespace Cw3.Controllers
         }
         //ZADANIE 8
       
-        
+      
 
         //ZADANIE 7
-        [HttpPut("{id}")]
-        public IActionResult PutStudent(int id, Student student)
-        {
-
-            return Ok("Aktualizacja dokonczona");
-        }
-        [HttpDelete("{id}")]
-        public IActionResult DeleteStudent(int id, Student student)
-        {
-            return Ok("Usuwanie ukonczone");
-        }
-        [HttpPut()]
+       
+        //[HttpPut()]
        public IActionResult HashAll(string IndexNumber)
         {
             using (var client = new SqlConnection("Data Source=db-mssql;Initial Catalog=s18291;Integrated Security=True"))

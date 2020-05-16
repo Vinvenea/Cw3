@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Cw3.DAL;
 using Cw3.Handlers;
 using Cw3.Middleware;
+using Cw3.Models;
 using Cw3.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,20 +36,25 @@ namespace Cw3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<s18291Context>(options =>
+            {
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                     .AddJwtBearer(options =>
-                     {
-                         options.TokenValidationParameters = new TokenValidationParameters
-                         {
-                             ValidateIssuer = true,
-                             ValidateAudience = true,
-                             ValidateLifetime = true,
-                             ValidIssuer = "Gakko",
-                             ValidAudience = "Students",
-                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))
-                         };
-                     });
+                options.UseSqlServer("Data Source=db-mssql;Initial Catalog=s18291;Integrated Security=True");
+            }
+        );
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //         .AddJwtBearer(options =>
+            //         {
+            //             options.TokenValidationParameters = new TokenValidationParameters
+            //             {
+            //                 ValidateIssuer = true,
+            //                 ValidateAudience = true,
+            //                 ValidateLifetime = true,
+            //                 ValidIssuer = "Gakko",
+            //                 ValidAudience = "Students",
+            //                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))
+            //             };
+            //         });
             //services.AddAuthentication("AuthenticationBasic")
             //     .AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>("AuthenticationBasic", null);
 
@@ -73,31 +80,31 @@ namespace Cw3
             //ZAD 1
             // next to kolejny middleware
             //app.UseMiddleware<LoggingMiddleware>();
-            app.Use(async (context, next) => {
+            //app.Use(async (context, next) => {
                 
 
 
 
-                if (!context.Request.Headers.ContainsKey("Index"))   {
+            //    if (!context.Request.Headers.ContainsKey("Index"))   {
                   
-                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    await context.Response.WriteAsync("Nie podano indeksu w naglowku");
-                    return;
+            //        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            //        await context.Response.WriteAsync("Nie podano indeksu w naglowku");
+            //        return;
 
-                }
+            //    }
 
                
-                var index = context.Request.Headers["Index"].ToString();
+            //    var index = context.Request.Headers["Index"].ToString();
 
              
-                if (!iStudent.ifExists(index))
-                {
-                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    await context.Response.WriteAsync("Student nie istnieje");
-                    return;
-                }
-                await next();
-            });
+            //    if (!iStudent.ifExists(index))
+            //    {
+            //        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            //        await context.Response.WriteAsync("Student nie istnieje");
+            //        return;
+            //    }
+            //    await next();
+            //});
 
             app.UseRouting();
             app.UseAuthentication();

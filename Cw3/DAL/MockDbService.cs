@@ -14,9 +14,9 @@ namespace Cw3.DAL
         {
             _students = new List<Student>
             {
-                new Student{IdStudent=1, FirstName="Jan", LastName="Kowalski" },
-                new Student{IdStudent=2, FirstName="Anna", LastName="Malewski" },
-                new Student{IdStudent=3, FirstName="Andrzej", LastName="Andrzejewicz" }
+                new Student{IndexNumber="1", FirstName="Jan", LastName="Kowalski" },
+                new Student{IndexNumber="2", FirstName="Anna", LastName="Malewski" },
+                new Student{IndexNumber="3", FirstName="Andrzej", LastName="Andrzejewicz" }
             };
 
         }
@@ -29,9 +29,9 @@ namespace Cw3.DAL
         public bool CheckIndex(string index)
         {
             _students = new List<Student>();
-            return false ;
+            return false;
         }
 
-       
+
     }
 }
